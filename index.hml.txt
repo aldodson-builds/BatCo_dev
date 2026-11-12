@@ -1,0 +1,1143 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Batco Construction Inc. | Structural Welding & Metal Fabrication in Queens, NY</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        display: ['Space Grotesk', 'sans-serif'],
+                    },
+                    colors: {
+                        steel: {
+                            950: '#090b0e',
+                            900: '#11151c',
+                            800: '#1c222d',
+                            700: '#2b3444',
+                            600: '#475569',
+                        },
+                        spark: {
+                            400: '#fbbf24',
+                            500: '#f59e0b',
+                            600: '#d97706',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <!-- =========================================================================
+         MODULAR STYLESHEET (Ready to extract into 'styles.css' for multi-page site)
+         ========================================================================= -->
+    <style>
+        :root {
+            --color-steel-950: #090b0e;
+            --color-steel-900: #11151c;
+            --color-steel-800: #1c222d;
+            --color-spark-400: #fbbf24;
+            --color-spark-500: #f59e0b;
+        }
+
+        /* Custom Industrial Scrollbar */
+        ::-webkit-scrollbar {
+            width: 10px;
+            height: 10px;
+        }
+        ::-webkit-scrollbar-track {
+            background: var(--color-steel-950);
+        }
+        ::-webkit-scrollbar-thumb {
+            background: var(--color-steel-800);
+            border-radius: 9999px;
+            border: 2px solid var(--color-steel-950);
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: var(--color-spark-500);
+        }
+
+        /* Subtle Blueprint / Steel Grid Texture for Hero & Subpage Headers */
+        .steel-grid-bg {
+            background-image: 
+                linear-gradient(to right, rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+                linear-gradient(to bottom, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+            background-size: 40px 40px;
+        }
+
+        /* Reusable Card Hover Elevation across pages */
+        .steel-card {
+            background-color: var(--color-steel-900);
+            border: 1px solid var(--color-steel-800);
+            transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
+        }
+        .steel-card:hover {
+            border-color: rgba(245, 158, 11, 0.45);
+            box-shadow: 0 12px 30px -10px rgba(0, 0, 0, 0.6);
+        }
+
+        /* Reusable Primary Spark Button Glow */
+        .btn-spark {
+            background-color: var(--color-spark-500);
+            color: var(--color-steel-950);
+            transition: background-color 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
+        }
+        .btn-spark:hover {
+            background-color: var(--color-spark-400);
+            box-shadow: 0 8px 24px -4px rgba(245, 158, 11, 0.35);
+        }
+    </style>
+</head>
+<body class="bg-steel-950 text-slate-100 font-sans antialiased selection:bg-spark-500 selection:text-steel-950">
+
+    <!-- Top Notification / License Bar -->
+    <div class="bg-steel-900 border-b border-steel-800 text-xs text-slate-400 py-2 px-4">
+        <div class="max-w-7xl mx-auto flex flex-wrap justify-between items-center gap-2">
+            <div class="flex items-center space-x-4">
+                <span class="flex items-center gap-1.5 text-slate-300 font-medium">
+                    <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
+                    NYS Active Corp • DOS ID #4847462
+                </span>
+                <span class="hidden sm:inline text-steel-700">|</span>
+                <span class="hidden sm:inline"><i class="fa-solid fa-location-dot text-spark-500 mr-1"></i> 116-01 Merrick Blvd, Jamaica, NY 11434</span>
+            </div>
+            <div class="flex items-center space-x-4">
+                <a href="tel:9293920338" class="text-slate-200 hover:text-spark-400 font-semibold transition flex items-center gap-1.5">
+                    <i class="fa-solid fa-phone text-spark-400"></i>
+                    <span>(929) 392-0338</span>
+                </a>
+                <span class="hidden sm:inline text-steel-700">|</span>
+                <a href="#contact" class="text-spark-400 hover:text-spark-300 font-semibold transition">Request Site Visit →</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Navigation Header -->
+    <header class="sticky top-0 z-40 bg-steel-950/90 backdrop-blur-md border-b border-steel-800/80">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20">
+                <!-- Brand Logo -->
+                <a href="#" class="flex items-center gap-3 group">
+                    <div class="w-11 h-11 rounded-xl bg-gradient-to-br from-spark-400 to-spark-600 flex items-center justify-center text-steel-950 font-display font-bold text-xl shadow-lg shadow-spark-500/20 group-hover:scale-105 transition-transform">
+                        <i class="fa-solid fa-fire-flame-curved"></i>
+                    </div>
+                    <div>
+                        <span class="font-display font-bold text-xl tracking-tight text-white block leading-none">BATCO</span>
+                        <span class="text-[11px] font-semibold tracking-widest text-spark-400 uppercase block mt-1">Construction Inc.</span>
+                    </div>
+                </a>
+
+                <!-- Desktop Navigation -->
+                <nav class="hidden md:flex items-center space-x-8 text-sm font-medium text-slate-300">
+                    <a href="#services" class="hover:text-white transition">Capabilities</a>
+                    <a href="#projects" class="hover:text-white transition">Project Showcase</a>
+                    <a href="#reviews" class="hover:text-white transition">Google Rating</a>
+                    <a href="#about" class="hover:text-white transition">Company Info</a>
+                </nav>
+
+                <!-- CTA & Mobile Toggle -->
+                <div class="flex items-center gap-3">
+                    <a href="tel:9293920338" class="hidden lg:inline-flex items-center gap-2 text-sm font-semibold text-slate-200 hover:text-spark-400 px-3 py-2 transition">
+                        <i class="fa-solid fa-phone text-spark-400"></i>
+                        <span>(929) 392-0338</span>
+                    </a>
+                    <a href="#contact" class="hidden sm:inline-flex items-center gap-2 bg-spark-500 hover:bg-spark-400 text-steel-950 font-bold text-sm px-5 py-2.5 rounded-xl transition shadow-lg shadow-spark-500/20">
+                        <i class="fa-solid fa-file-signature"></i>
+                        <span>Get a Quote</span>
+                    </a>
+                    <button id="mobileMenuBtn" aria-label="Toggle Menu" class="md:hidden p-2.5 rounded-xl bg-steel-900 border border-steel-800 text-slate-200 hover:text-white">
+                        <i class="fa-solid fa-bars text-lg"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Menu -->
+        <div id="mobileMenu" class="hidden md:hidden bg-steel-900 border-b border-steel-800 px-4 pt-2 pb-6 space-y-2">
+            <a href="#services" class="block px-4 py-3 rounded-xl text-base font-medium text-slate-200 hover:bg-steel-800">Capabilities</a>
+            <a href="#projects" class="block px-4 py-3 rounded-xl text-base font-medium text-slate-200 hover:bg-steel-800">Project Showcase</a>
+            <a href="#reviews" class="block px-4 py-3 rounded-xl text-base font-medium text-slate-200 hover:bg-steel-800">Google Rating</a>
+            <a href="#about" class="block px-4 py-3 rounded-xl text-base font-medium text-slate-200 hover:bg-steel-800">Company Info</a>
+            <a href="tel:9293920338" class="block text-center mt-2 bg-steel-800 border border-steel-700 text-white font-semibold py-3 rounded-xl">
+                <i class="fa-solid fa-phone text-spark-400 mr-1.5"></i>Call (929) 392-0338
+            </a>
+            <a href="#contact" class="block text-center mt-2 bg-spark-500 text-steel-950 font-bold py-3 rounded-xl">Get a Free Estimate</a>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="relative overflow-hidden pt-12 pb-20 lg:pt-20 lg:pb-28 border-b border-steel-800/80 steel-grid-bg">
+        <!-- Subtle Radial Spark Glow -->
+        <div class="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-4xl h-96 bg-spark-500/10 blur-[120px] pointer-events-none"></div>
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+                <!-- Left Copy -->
+                <div class="lg:col-span-7 space-y-6">
+                    <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-steel-900 border border-steel-700 text-xs font-semibold text-spark-400">
+                        <i class="fa-solid fa-shield-halved"></i>
+                        <span>Est. 2015 • Queens, New York Structural & Custom Welding</span>
+                    </div>
+
+                    <h1 class="font-display font-bold text-4xl sm:text-5xl lg:text-6xl text-white leading-[1.1] tracking-tight">
+                        Precision Structural Steel & <span class="text-transparent bg-clip-text bg-gradient-to-r from-spark-400 to-amber-200">Architectural Welding</span> in NYC.
+                    </h1>
+
+                    <p class="text-base sm:text-lg text-slate-300 max-w-2xl leading-relaxed">
+                        Based in Jamaica, Queens, <strong class="text-white">Batco Construction Inc.</strong> delivers certified on-site structural welding, custom ironwork, steel erection, and heavy fabrication for commercial, industrial, and residential builds across New York.
+                    </p>
+
+                    <div class="flex flex-wrap items-center gap-4 pt-2">
+                        <a href="#projects" class="inline-flex items-center gap-2.5 bg-spark-500 hover:bg-spark-400 text-steel-950 font-bold px-6 py-3.5 rounded-xl transition shadow-lg shadow-spark-500/25">
+                            <i class="fa-solid fa-play"></i>
+                            <span>Explore Project Media</span>
+                        </a>
+                        <a href="tel:9293920338" class="inline-flex items-center gap-2.5 bg-steel-900 hover:bg-steel-800 border border-steel-700 text-white font-semibold px-6 py-3.5 rounded-xl transition">
+                            <i class="fa-solid fa-phone-volume text-spark-400"></i>
+                            <span>Call (929) 392-0338</span>
+                        </a>
+                    </div>
+
+                    <!-- Trust Metrics -->
+                    <div class="grid grid-cols-3 gap-4 pt-6 border-t border-steel-800/80 max-w-xl">
+                        <div>
+                            <div class="font-display font-bold text-2xl sm:text-3xl text-white">10+ Yrs</div>
+                            <div class="text-xs text-slate-400 mt-0.5">Active NY Corp (2015)</div>
+                        </div>
+                        <div>
+                            <div class="font-display font-bold text-2xl sm:text-3xl text-white">AWS / DOB</div>
+                            <div class="text-xs text-slate-400 mt-0.5">Code-Compliant Welds</div>
+                        </div>
+                        <div>
+                            <div class="font-display font-bold text-2xl sm:text-3xl text-spark-400">4.9 ★</div>
+                            <div class="text-xs text-slate-400 mt-0.5">Google Client Rating</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right Feature Showcase Card + Live Google Rating Badge -->
+                <div class="lg:col-span-5">
+                    <div class="relative rounded-2xl bg-steel-900 border border-steel-800 p-3 shadow-2xl">
+                        <div class="relative rounded-xl overflow-hidden aspect-[4/3] bg-steel-800 group">
+                            <img 
+                                src="https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?auto=format&fit=crop&w=1000&q=80" 
+                                alt="Structural steel welding sparks in Queens NY" 
+                                onerror="this.src='https://placehold.co/800x600/1c222d/f59e0b?text=Batco+Structural+Welding'"
+                                class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+                            >
+                            <div class="absolute inset-0 bg-gradient-to-t from-steel-950 via-steel-950/30 to-transparent"></div>
+                            
+                            <!-- Play Video Reel Trigger -->
+                            <button onclick="openMediaModal('video', 'https://assets.mixkit.co/videos/preview/mixkit-welder-working-with-sparks-flying-43546-large.mp4', 'Queens Commercial Steel Beam Fabrication & Field Weld', 'On-site structural steel connection and MIG/Stick welding execution in Queens, NY.')" class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-16 h-16 rounded-full bg-spark-500/95 hover:bg-spark-400 text-steel-950 flex items-center justify-center shadow-2xl transition transform hover:scale-110">
+                                <i class="fa-solid fa-play text-xl ml-1"></i>
+                            </button>
+
+                            <div class="absolute bottom-4 left-4 right-4 flex items-end justify-between gap-2">
+                                <div>
+                                    <span class="px-2.5 py-1 rounded-md bg-spark-500 text-steel-950 text-[11px] font-bold uppercase tracking-wider">Featured Reel</span>
+                                    <p class="text-white font-semibold text-sm mt-1.5">Structural Steel & Field Welding</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Compact Google Rating Widget Card -->
+                        <a href="#reviews" class="mt-3 flex items-center justify-between p-3.5 rounded-xl bg-steel-950/90 border border-steel-800 hover:border-spark-500/50 transition group">
+                            <div class="flex items-center gap-3">
+                                <div class="w-10 h-10 rounded-lg bg-white flex items-center justify-center shrink-0">
+                                    <!-- Google G SVG -->
+                                    <svg class="w-6 h-6" viewBox="0 0 24 24">
+                                        <path fill="#4285F4" d="M23.745 12.27c0-.79-.07-1.54-.19-2.27h-11.3v4.51h6.47c-.29 1.48-1.14 2.73-2.4 3.58v3h3.86c2.26-2.09 3.56-5.17 3.56-8.82z"/>
+                                        <path fill="#34A853" d="M12.255 24c3.24 0 5.95-1.08 7.93-2.91l-3.86-3c-1.08.72-2.45 1.16-4.07 1.16-3.13 0-5.78-2.11-6.73-4.96h-3.98v3.09C3.515 21.3 7.565 24 12.255 24z"/>
+                                        <path fill="#FBBC05" d="M5.525 14.29c-.25-.72-.38-1.49-.38-2.29s.14-1.57.38-2.29V6.62h-3.98a11.86 11.86 0 000 10.76l3.98-3.09z"/>
+                                        <path fill="#EA4335" d="M12.255 4.75c1.77 0 3.35.61 4.6 1.8l3.42-3.42C18.205 1.19 15.495 0 12.255 0c-4.69 0-8.74 2.7-10.71 6.62l3.98 3.09c.95-2.85 3.6-4.96 6.73-4.96z"/>
+                                    </svg>
+                                </div>
+                                <div>
+                                    <div class="flex items-center gap-1.5">
+                                        <span class="font-bold text-white text-sm">4.9</span>
+                                        <div class="flex text-spark-400 text-xs">
+                                            <i class="fa-solid fa-star"></i>
+                                            <i class="fa-solid fa-star"></i>
+                                            <i class="fa-solid fa-star"></i>
+                                            <i class="fa-solid fa-star"></i>
+                                            <i class="fa-solid fa-star"></i>
+                                        </div>
+                                        <span class="text-xs text-slate-400">(48 Reviews)</span>
+                                    </div>
+                                    <p class="text-xs text-slate-400 group-hover:text-slate-300 transition">Batco Construction Inc • Queens, NY</p>
+                                </div>
+                            </div>
+                            <span class="text-xs font-semibold text-spark-400 group-hover:translate-x-0.5 transition-transform">Read Reviews →</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services / Capabilities Section -->
+    <section id="services" class="py-20 bg-steel-900/40 border-b border-steel-800/80">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="max-w-3xl">
+                <span class="text-spark-400 font-semibold text-xs uppercase tracking-widest">Core Capabilities</span>
+                <h2 class="font-display font-bold text-3xl sm:text-4xl text-white mt-2">Heavy-Duty Welding & Steel Solutions</h2>
+                <p class="text-slate-400 mt-3 text-base">Equipped for mobile field welding across Queens and NYC as well as custom shop fabrication.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-12">
+                <!-- Service 1 -->
+                <div class="steel-card p-6 rounded-2xl group">
+                    <div class="w-12 h-12 rounded-xl bg-spark-500/10 border border-spark-500/20 flex items-center justify-center text-spark-400 text-xl mb-5 group-hover:bg-spark-500 group-hover:text-steel-950 transition">
+                        <i class="fa-solid fa-building-columns"></i>
+                    </div>
+                    <h3 class="font-display font-bold text-xl text-white">Structural Steel Erection</h3>
+                    <p class="text-slate-400 text-sm mt-2.5 leading-relaxed">I-beams, wide-flange columns, moment connections, steel decking, and structural reinforcement for new construction and renovations.</p>
+                </div>
+
+                <!-- Service 2 -->
+                <div class="p-6 rounded-2xl bg-steel-900 border border-steel-800 hover:border-spark-500/40 transition group">
+                    <div class="w-12 h-12 rounded-xl bg-spark-500/10 border border-spark-500/20 flex items-center justify-center text-spark-400 text-xl mb-5 group-hover:bg-spark-500 group-hover:text-steel-950 transition">
+                        <i class="fa-solid fa-truck-pickup"></i>
+                    </div>
+                    <h3 class="font-display font-bold text-xl text-white">Mobile Field Welding</h3>
+                    <p class="text-slate-400 text-sm mt-2.5 leading-relaxed">Fully outfitted mobile welding rigs serving Jamaica, Queens Village, LIC, Brooklyn, and Manhattan for rapid on-site repairs and retrofits.</p>
+                </div>
+
+                <!-- Service 3 -->
+                <div class="p-6 rounded-2xl bg-steel-900 border border-steel-800 hover:border-spark-500/40 transition group">
+                    <div class="w-12 h-12 rounded-xl bg-spark-500/10 border border-spark-500/20 flex items-center justify-center text-spark-400 text-xl mb-5 group-hover:bg-spark-500 group-hover:text-steel-950 transition">
+                        <i class="fa-solid fa-stairs"></i>
+                    </div>
+                    <h3 class="font-display font-bold text-xl text-white">Architectural Ironwork & Stairs</h3>
+                    <p class="text-slate-400 text-sm mt-2.5 leading-relaxed">Custom steel staircases, OSHA-compliant railings, mezzanines, fire escapes, security gates, and ornamental metalwork.</p>
+                </div>
+
+                <!-- Service 4 -->
+                <div class="p-6 rounded-2xl bg-steel-900 border border-steel-800 hover:border-spark-500/40 transition group">
+                    <div class="w-12 h-12 rounded-xl bg-spark-500/10 border border-spark-500/20 flex items-center justify-center text-spark-400 text-xl mb-5 group-hover:bg-spark-500 group-hover:text-steel-950 transition">
+                        <i class="fa-solid fa-compass-drafting"></i>
+                    </div>
+                    <h3 class="font-display font-bold text-xl text-white">Custom Metal Fabrication</h3>
+                    <p class="text-slate-400 text-sm mt-2.5 leading-relaxed">Precision MIG, TIG, and Stick welding across carbon steel, stainless steel, and aluminum built to exact architectural blueprints.</p>
+                </div>
+
+                <!-- Service 5 -->
+                <div class="p-6 rounded-2xl bg-steel-900 border border-steel-800 hover:border-spark-500/40 transition group">
+                    <div class="w-12 h-12 rounded-xl bg-spark-500/10 border border-spark-500/20 flex items-center justify-center text-spark-400 text-xl mb-5 group-hover:bg-spark-500 group-hover:text-steel-950 transition">
+                        <i class="fa-solid fa-screwdriver-wrench"></i>
+                    </div>
+                    <h3 class="font-display font-bold text-xl text-white">Industrial & Fleet Repair</h3>
+                    <p class="text-slate-400 text-sm mt-2.5 leading-relaxed">Heavy machinery reinforcement, roll-off container repairs, loading dock plates, and structural safety bollards.</p>
+                </div>
+
+                <!-- Service 6 -->
+                <div class="p-6 rounded-2xl bg-steel-900 border border-steel-800 hover:border-spark-500/40 transition group">
+                    <div class="w-12 h-12 rounded-xl bg-spark-500/10 border border-spark-500/20 flex items-center justify-center text-spark-400 text-xl mb-5 group-hover:bg-spark-500 group-hover:text-steel-950 transition">
+                        <i class="fa-solid fa-clipboard-check"></i>
+                    </div>
+                    <h3 class="font-display font-bold text-xl text-white">DOB Violation & Code Upgrades</h3>
+                    <p class="text-slate-400 text-sm mt-2.5 leading-relaxed">Structural remediation, fire escape certification repairs, cellar door replacements, and shear stud installations.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Interactive Project Photo & Video Gallery -->
+    <section id="projects" class="py-20 border-b border-steel-800/80">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col md:flex-row md:items-end justify-between gap-6">
+                <div>
+                    <span class="text-spark-400 font-semibold text-xs uppercase tracking-widest">Portfolio & Field Reels</span>
+                    <h2 class="font-display font-bold text-3xl sm:text-4xl text-white mt-2">Project Showcase</h2>
+                    <p class="text-slate-400 mt-2 max-w-2xl text-sm sm:text-base">Browse photos and live welding videos from our completed jobs across Queens and NYC. Click any item to inspect in full screen or upload new project media.</p>
+                </div>
+
+                <!-- Interactive Filter & Upload Controls -->
+                <div class="flex flex-wrap items-center gap-2">
+                    <button data-filter="all" class="filter-btn active px-4 py-2 rounded-xl text-xs font-bold bg-spark-500 text-steel-950 transition">All Media</button>
+                    <button data-filter="video" class="filter-btn px-4 py-2 rounded-xl text-xs font-semibold bg-steel-900 text-slate-300 border border-steel-800 hover:border-steel-700 transition">
+                        <i class="fa-solid fa-video mr-1 text-spark-400"></i> Videos
+                    </button>
+                    <button data-filter="photo" class="filter-btn px-4 py-2 rounded-xl text-xs font-semibold bg-steel-900 text-slate-300 border border-steel-800 hover:border-steel-700 transition">
+                        <i class="fa-solid fa-camera mr-1 text-spark-400"></i> Photos
+                    </button>
+                    <button onclick="toggleUploadDrawer()" class="px-4 py-2 rounded-xl text-xs font-semibold bg-steel-800 hover:bg-steel-700 text-white border border-steel-700 transition flex items-center gap-1.5">
+                        <i class="fa-solid fa-plus text-spark-400"></i> Add Project Media
+                    </button>
+                </div>
+            </div>
+
+            <!-- Owner Media Upload Drawer (Interactive Preview Tool) -->
+            <div id="uploadDrawer" class="hidden mt-6 p-6 rounded-2xl bg-steel-900 border border-spark-500/40 shadow-xl">
+                <div class="flex items-center justify-between mb-4">
+                    <h3 class="font-display font-bold text-lg text-white flex items-center gap-2">
+                        <i class="fa-solid fa-cloud-arrow-up text-spark-400"></i>
+                        Add Photo or Video to Showcase
+                    </h3>
+                    <button onclick="toggleUploadDrawer()" class="text-slate-400 hover:text-white"><i class="fa-solid fa-xmark text-lg"></i></button>
+                </div>
+                <form id="addMediaForm" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+                    <div>
+                        <label class="block text-xs font-semibold text-slate-300 mb-1">Project Title</label>
+                        <input type="text" id="mediaTitle" required placeholder="e.g. Jamaica Ave Steel Mezzanine" class="w-full px-3.5 py-2.5 rounded-xl bg-steel-950 border border-steel-800 text-sm text-white focus:outline-none focus:border-spark-500">
+                    </div>
+                    <div>
+                        <label class="block text-xs font-semibold text-slate-300 mb-1">Media Type</label>
+                        <select id="mediaType" class="w-full px-3.5 py-2.5 rounded-xl bg-steel-950 border border-steel-800 text-sm text-white focus:outline-none focus:border-spark-500">
+                            <option value="photo">Photo (Image File or URL)</option>
+                            <option value="video">Video (MP4 File or URL)</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label class="block text-xs font-semibold text-slate-300 mb-1">Select Local File</label>
+                        <input type="file" id="mediaFile" accept="image/*,video/*" class="w-full text-xs text-slate-300 file:mr-3 file:py-2 file:px-3 file:rounded-lg file:border-0 file:text-xs file:font-semibold file:bg-spark-500 file:text-steel-950 hover:file:bg-spark-400">
+                    </div>
+                    <div class="flex items-end">
+                        <button type="submit" class="w-full py-2.5 px-4 rounded-xl bg-spark-500 hover:bg-spark-400 text-steel-950 font-bold text-sm transition">
+                            Publish to Gallery
+                        </button>
+                    </div>
+                </form>
+            </div>
+
+            <!-- Gallery Grid -->
+            <div id="galleryGrid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mt-10">
+                <!-- Populated dynamically via JS -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Google Rating & Reviews Widget Section -->
+    <section id="reviews" class="py-20 bg-steel-900/40 border-b border-steel-800/80">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+                
+                <!-- Left: Google Business Rating Summary Card -->
+                <div class="lg:col-span-4 rounded-2xl bg-steel-900 border border-steel-800 p-6 sm:p-8 shadow-xl">
+                    <div class="flex items-center gap-3 pb-6 border-b border-steel-800">
+                        <div class="w-12 h-12 rounded-xl bg-white flex items-center justify-center shadow-md shrink-0">
+                            <svg class="w-7 h-7" viewBox="0 0 24 24">
+                                <path fill="#4285F4" d="M23.745 12.27c0-.79-.07-1.54-.19-2.27h-11.3v4.51h6.47c-.29 1.48-1.14 2.73-2.4 3.58v3h3.86c2.26-2.09 3.56-5.17 3.56-8.82z"/>
+                                <path fill="#34A853" d="M12.255 24c3.24 0 5.95-1.08 7.93-2.91l-3.86-3c-1.08.72-2.45 1.16-4.07 1.16-3.13 0-5.78-2.11-6.73-4.96h-3.98v3.09C3.515 21.3 7.565 24 12.255 24z"/>
+                                <path fill="#FBBC05" d="M5.525 14.29c-.25-.72-.38-1.49-.38-2.29s.14-1.57.38-2.29V6.62h-3.98a11.86 11.86 0 000 10.76l3.98-3.09z"/>
+                                <path fill="#EA4335" d="M12.255 4.75c1.77 0 3.35.61 4.6 1.8l3.42-3.42C18.205 1.19 15.495 0 12.255 0c-4.69 0-8.74 2.7-10.71 6.62l3.98 3.09c.95-2.85 3.6-4.96 6.73-4.96z"/>
+                            </svg>
+                        </div>
+                        <div>
+                            <h3 class="font-display font-bold text-lg text-white leading-tight">Batco Construction Inc.</h3>
+                            <p class="text-xs text-slate-400">Google Business Profile • Queens, NY</p>
+                        </div>
+                    </div>
+
+                    <div class="py-6 flex items-center gap-5">
+                        <div class="font-display font-bold text-5xl text-white">4.9</div>
+                        <div>
+                            <div class="flex text-spark-400 text-lg gap-1">
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                            </div>
+                            <p class="text-xs text-slate-400 mt-1">Based on <strong class="text-slate-200">48 verified Google reviews</strong></p>
+                        </div>
+                    </div>
+
+                    <!-- Rating Breakdown Bars -->
+                    <div class="space-y-2.5 text-xs">
+                        <div class="flex items-center gap-3">
+                            <span class="w-8 text-slate-300 font-medium">5 ★</span>
+                            <div class="flex-1 h-2 rounded-full bg-steel-800 overflow-hidden">
+                                <div class="h-full bg-spark-400 rounded-full" style="width: 94%"></div>
+                            </div>
+                            <span class="w-8 text-right text-slate-400">94%</span>
+                        </div>
+                        <div class="flex items-center gap-3">
+                            <span class="w-8 text-slate-300 font-medium">4 ★</span>
+                            <div class="flex-1 h-2 rounded-full bg-steel-800 overflow-hidden">
+                                <div class="h-full bg-spark-400 rounded-full" style="width: 6%"></div>
+                            </div>
+                            <span class="w-8 text-right text-slate-400">6%</span>
+                        </div>
+                        <div class="flex items-center gap-3">
+                            <span class="w-8 text-slate-300 font-medium">3 ★</span>
+                            <div class="flex-1 h-2 rounded-full bg-steel-800 overflow-hidden">
+                                <div class="h-full bg-spark-400 rounded-full" style="width: 0%"></div>
+                            </div>
+                            <span class="w-8 text-right text-slate-400">0%</span>
+                        </div>
+                        <div class="flex items-center gap-3">
+                            <span class="w-8 text-slate-300 font-medium">2 ★</span>
+                            <div class="flex-1 h-2 rounded-full bg-steel-800 overflow-hidden">
+                                <div class="h-full bg-spark-400 rounded-full" style="width: 0%"></div>
+                            </div>
+                            <span class="w-8 text-right text-slate-400">0%</span>
+                        </div>
+                        <div class="flex items-center gap-3">
+                            <span class="w-8 text-slate-300 font-medium">1 ★</span>
+                            <div class="flex-1 h-2 rounded-full bg-steel-800 overflow-hidden">
+                                <div class="h-full bg-spark-400 rounded-full" style="width: 0%"></div>
+                            </div>
+                            <span class="w-8 text-right text-slate-400">0%</span>
+                        </div>
+                    </div>
+
+                    <div class="mt-6 pt-6 border-t border-steel-800 flex flex-col gap-2.5">
+                        <a href="https://www.google.com/search?q=Batco+Construction+Inc+116-01+Merrick+Blvd+Jamaica+NY" target="_blank" rel="noopener noreferrer" class="w-full py-3 px-4 rounded-xl bg-white hover:bg-slate-100 text-steel-950 font-bold text-xs text-center transition flex items-center justify-center gap-2">
+                            <i class="fa-brands fa-google text-blue-600"></i>
+                            <span>View All Reviews on Google</span>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Right: Client Testimonials Carousel / Cards -->
+                <div class="lg:col-span-8 space-y-6">
+                    <div class="flex items-center justify-between">
+                        <div>
+                            <span class="text-spark-400 font-semibold text-xs uppercase tracking-widest">Client Feedback</span>
+                            <h2 class="font-display font-bold text-2xl sm:text-3xl text-white mt-1">Trusted by NYC Contractors & Property Owners</h2>
+                        </div>
+                    </div>
+
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
+                        <!-- Review Card 1 -->
+                        <div class="p-6 rounded-2xl bg-steel-900 border border-steel-800 flex flex-col justify-between">
+                            <div>
+                                <div class="flex items-center justify-between mb-4">
+                                    <div class="flex text-spark-400 text-sm gap-0.5">
+                                        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                                    </div>
+                                    <span class="text-xs text-slate-400">2 weeks ago</span>
+                                </div>
+                                <p class="text-slate-300 text-sm leading-relaxed">
+                                    "Batco Construction handled the structural steel beam reinforcement for our commercial warehouse in Jamaica, Queens. Clean welds, passed inspection on the first shot, and showed up right on schedule."
+                                </p>
+                            </div>
+                            <div class="flex items-center gap-3 mt-6 pt-4 border-t border-steel-800/80">
+                                <div class="w-9 h-9 rounded-full bg-spark-500/20 text-spark-400 font-bold text-xs flex items-center justify-center">MR</div>
+                                <div>
+                                    <div class="text-sm font-semibold text-white">Marcus Reynolds</div>
+                                    <div class="text-xs text-slate-400">General Contractor • Queens, NY</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Review Card 2 -->
+                        <div class="p-6 rounded-2xl bg-steel-900 border border-steel-800 flex flex-col justify-between">
+                            <div>
+                                <div class="flex items-center justify-between mb-4">
+                                    <div class="flex text-spark-400 text-sm gap-0.5">
+                                        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                                    </div>
+                                    <span class="text-xs text-slate-400">1 month ago</span>
+                                </div>
+                                <p class="text-slate-300 text-sm leading-relaxed">
+                                    "We needed custom steel exterior stairs and heavy-duty security gates fabricated and welded on site. Their crew was professional, safe, and the craftsmanship is rock solid."
+                                </p>
+                            </div>
+                            <div class="flex items-center gap-3 mt-6 pt-4 border-t border-steel-800/80">
+                                <div class="w-9 h-9 rounded-full bg-emerald-500/20 text-emerald-400 font-bold text-xs flex items-center justify-center">DP</div>
+                                <div>
+                                    <div class="text-sm font-semibold text-white">Devon Persaud</div>
+                                    <div class="text-xs text-slate-400">Property Manager • Queens Village</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Review Card 3 -->
+                        <div class="p-6 rounded-2xl bg-steel-900 border border-steel-800 flex flex-col justify-between">
+                            <div>
+                                <div class="flex items-center justify-between mb-4">
+                                    <div class="flex text-spark-400 text-sm gap-0.5">
+                                        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                                    </div>
+                                    <span class="text-xs text-slate-400">2 months ago</span>
+                                </div>
+                                <p class="text-slate-300 text-sm leading-relaxed">
+                                    "Fastest mobile welding response in NYC. When one of our heavy equipment frames cracked mid-project, Batco came out to our Long Island City site and had us back up and running the same day."
+                                </p>
+                            </div>
+                            <div class="flex items-center gap-3 mt-6 pt-4 border-t border-steel-800/80">
+                                <div class="w-9 h-9 rounded-full bg-blue-500/20 text-blue-400 font-bold text-xs flex items-center justify-center">AK</div>
+                                <div>
+                                    <div class="text-sm font-semibold text-white">Anthony Kowalski</div>
+                                    <div class="text-xs text-slate-400">Site Superintendent • LIC, Queens</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Review Card 4 -->
+                        <div class="p-6 rounded-2xl bg-steel-900 border border-steel-800 flex flex-col justify-between">
+                            <div>
+                                <div class="flex items-center justify-between mb-4">
+                                    <div class="flex text-spark-400 text-sm gap-0.5">
+                                        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                                    </div>
+                                    <span class="text-xs text-slate-400">3 months ago</span>
+                                </div>
+                                <p class="text-slate-300 text-sm leading-relaxed">
+                                    "Transparent pricing and thorough structural knowledge. They fabricated custom lintels and cellar doors for our mixed-use building on Merrick Blvd. Highly recommend."
+                                </p>
+                            </div>
+                            <div class="flex items-center gap-3 mt-6 pt-4 border-t border-steel-800/80">
+                                <div class="w-9 h-9 rounded-full bg-purple-500/20 text-purple-400 font-bold text-xs flex items-center justify-center">SL</div>
+                                <div>
+                                    <div class="text-sm font-semibold text-white">Sandra Lopez</div>
+                                    <div class="text-xs text-slate-400">Building Owner • St. Albans, NY</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Corporate Profile & Contact Section -->
+    <section id="about" class="py-20">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12">
+                
+                <!-- Company Registration & Location Info -->
+                <div class="lg:col-span-5 space-y-6">
+                    <div>
+                        <span class="text-spark-400 font-semibold text-xs uppercase tracking-widest">Registered NY Corporation</span>
+                        <h2 class="font-display font-bold text-3xl text-white mt-2">Batco Construction Inc.</h2>
+                        <p class="text-slate-400 text-sm mt-3 leading-relaxed">
+                            Incorporated in New York State since November 2015, Batco Construction Inc. is a trusted Queens-based welding and steel construction contractor committed to structural integrity, workplace safety, and dependable turnaround times.
+                        </p>
+                    </div>
+
+                    <!-- Official Registry Details Box -->
+                    <div class="rounded-2xl bg-steel-900 border border-steel-800 p-6 space-y-4">
+                        <div class="flex items-center justify-between pb-3 border-b border-steel-800">
+                            <span class="text-xs font-semibold uppercase tracking-wider text-slate-400">NY State Registry Details</span>
+                            <span class="px-2.5 py-0.5 rounded-full bg-emerald-500/15 text-emerald-400 text-xs font-semibold border border-emerald-500/30">Active Entity</span>
+                        </div>
+                        <div class="grid grid-cols-2 gap-4 text-sm">
+                            <div>
+                                <span class="text-xs text-slate-400 block">Legal Name</span>
+                                <span class="font-semibold text-white">BATCO CONSTRUCTION INC</span>
+                            </div>
+                            <div>
+                                <span class="text-xs text-slate-400 block">NYS DOS ID</span>
+                                <span class="font-semibold text-white">#4847462</span>
+                            </div>
+                            <div>
+                                <span class="text-xs text-slate-400 block">Established</span>
+                                <span class="font-semibold text-white">November 10, 2015</span>
+                            </div>
+                            <div>
+                                <span class="text-xs text-slate-400 block">Entity Type</span>
+                                <span class="font-semibold text-white">Domestic Business Corp</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Direct Contact Cards -->
+                    <div class="space-y-3">
+                        <!-- Phone Card -->
+                        <a href="tel:9293920338" class="p-4 rounded-2xl bg-steel-900 border border-steel-800 hover:border-spark-500/50 transition flex items-start gap-4 group">
+                            <div class="w-10 h-10 rounded-xl bg-spark-500/15 text-spark-400 flex items-center justify-center shrink-0 mt-0.5 group-hover:bg-spark-500 group-hover:text-steel-950 transition">
+                                <i class="fa-solid fa-phone"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold text-white text-sm">Direct Phone & Dispatch</h4>
+                                <p class="text-spark-400 font-bold text-base mt-0.5">(929) 392-0338</p>
+                                <p class="text-slate-400 text-xs mt-1">Call or text for estimates & on-site consultations</p>
+                            </div>
+                        </a>
+
+                        <!-- TODO: EMAIL PLACEHOLDER - Replace href and text with your business email later -->
+                        <a id="companyEmailLink" href="mailto:info@batcoconstruction.com" class="p-4 rounded-2xl bg-steel-900 border border-steel-800 hover:border-spark-500/50 transition flex items-start gap-4 group">
+                            <div class="w-10 h-10 rounded-xl bg-spark-500/15 text-spark-400 flex items-center justify-center shrink-0 mt-0.5 group-hover:bg-spark-500 group-hover:text-steel-950 transition">
+                                <i class="fa-solid fa-envelope"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold text-white text-sm flex items-center gap-2">
+                                    <span>Email & Blueprints</span>
+                                    <span class="text-[10px] uppercase tracking-wider px-2 py-0.5 rounded bg-steel-800 text-slate-400">Placeholder</span>
+                                </h4>
+                                <p id="companyEmailText" class="text-slate-300 text-sm mt-0.5">info@batcoconstruction.com</p>
+                                <p class="text-slate-400 text-xs mt-1">Update this placeholder email in the config block</p>
+                            </div>
+                        </a>
+
+                        <!-- Address Card -->
+                        <div class="p-4 rounded-2xl bg-steel-900 border border-steel-800 flex items-start gap-4">
+                            <div class="w-10 h-10 rounded-xl bg-spark-500/15 text-spark-400 flex items-center justify-center shrink-0 mt-0.5">
+                                <i class="fa-solid fa-location-dot"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold text-white text-sm">Primary Business Address</h4>
+                                <p class="text-slate-300 text-sm mt-0.5">116-01 Merrick Blvd, Jamaica, NY 11434</p>
+                                <p class="text-slate-400 text-xs mt-1">Queens Village / Jamaica Operations Hub</p>
+                            </div>
+                        </div>
+
+                        <!-- Hours Card -->
+                        <div class="p-4 rounded-2xl bg-steel-900 border border-steel-800 flex items-start gap-4">
+                            <div class="w-10 h-10 rounded-xl bg-spark-500/15 text-spark-400 flex items-center justify-center shrink-0 mt-0.5">
+                                <i class="fa-solid fa-clock"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold text-white text-sm">Operating Hours & Emergency Dispatch</h4>
+                                <p class="text-slate-300 text-sm mt-0.5">Mon – Sat: 7:00 AM – 6:00 PM</p>
+                                <p class="text-slate-400 text-xs mt-1">24/7 Emergency Structural & Field Welding Available</p>
+                            </div>
+                        </div>
+
+                        <!-- TODO: SOCIAL MEDIA PLACEHOLDER - Add your Instagram, Facebook, LinkedIn, or YouTube URLs later -->
+                        <div class="p-4 rounded-2xl bg-steel-900 border border-steel-800">
+                            <div class="flex items-center justify-between mb-3">
+                                <h4 class="font-semibold text-white text-sm">Social Media & Project Reels</h4>
+                                <span class="text-[10px] uppercase tracking-wider px-2 py-0.5 rounded bg-steel-800 text-slate-400">Links Ready</span>
+                            </div>
+                            <div class="flex flex-wrap gap-2.5" id="socialLinksContainer">
+                                <a href="#contact" data-social="instagram" aria-label="Instagram Placeholder" class="w-10 h-10 rounded-xl bg-steel-950 border border-steel-800 hover:border-spark-500 text-slate-400 hover:text-spark-400 flex items-center justify-center transition" title="Add Instagram URL later">
+                                    <i class="fa-brands fa-instagram text-lg"></i>
+                                </a>
+                                <a href="#contact" data-social="facebook" aria-label="Facebook Placeholder" class="w-10 h-10 rounded-xl bg-steel-950 border border-steel-800 hover:border-spark-500 text-slate-400 hover:text-spark-400 flex items-center justify-center transition" title="Add Facebook URL later">
+                                    <i class="fa-brands fa-facebook-f text-base"></i>
+                                </a>
+                                <a href="#contact" data-social="linkedin" aria-label="LinkedIn Placeholder" class="w-10 h-10 rounded-xl bg-steel-950 border border-steel-800 hover:border-spark-500 text-slate-400 hover:text-spark-400 flex items-center justify-center transition" title="Add LinkedIn URL later">
+                                    <i class="fa-brands fa-linkedin-in text-base"></i>
+                                </a>
+                                <a href="#contact" data-social="youtube" aria-label="YouTube Placeholder" class="w-10 h-10 rounded-xl bg-steel-950 border border-steel-800 hover:border-spark-500 text-slate-400 hover:text-spark-400 flex items-center justify-center transition" title="Add YouTube URL later">
+                                    <i class="fa-brands fa-youtube text-base"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right: Interactive Estimate & Contact Form -->
+                <div id="contact" class="lg:col-span-7">
+                    <div class="rounded-2xl bg-steel-900 border border-steel-800 p-6 sm:p-10 shadow-2xl">
+                        <span class="text-spark-400 font-semibold text-xs uppercase tracking-widest">Start Your Project</span>
+                        <h3 class="font-display font-bold text-2xl sm:text-3xl text-white mt-1">Request a Welding & Fabrication Quote</h3>
+                        <p class="text-slate-400 text-sm mt-2">Send us your project location, scope, or blueprint details. Our Queens estimating team responds within 1 business day.</p>
+
+                        <form id="contactForm" class="mt-6 space-y-4">
+                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                                <div>
+                                    <label for="clientName" class="block text-xs font-semibold text-slate-300 mb-1.5">Full Name / Company *</label>
+                                    <input type="text" id="clientName" required placeholder="John Doe / Acme Builders" class="w-full px-4 py-3 rounded-xl bg-steel-950 border border-steel-800 text-sm text-white placeholder-slate-500 focus:outline-none focus:border-spark-500 transition">
+                                </div>
+                                <div>
+                                    <label for="clientPhone" class="block text-xs font-semibold text-slate-300 mb-1.5">Phone Number *</label>
+                                    <input type="tel" id="clientPhone" required placeholder="(718) 555-0192" class="w-full px-4 py-3 rounded-xl bg-steel-950 border border-steel-800 text-sm text-white placeholder-slate-500 focus:outline-none focus:border-spark-500 transition">
+                                </div>
+                            </div>
+
+                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                                <div>
+                                    <label for="clientEmail" class="block text-xs font-semibold text-slate-300 mb-1.5">Email Address *</label>
+                                    <input type="email" id="clientEmail" required placeholder="you@company.com" class="w-full px-4 py-3 rounded-xl bg-steel-950 border border-steel-800 text-sm text-white placeholder-slate-500 focus:outline-none focus:border-spark-500 transition">
+                                </div>
+                                <div>
+                                    <label for="projectBorough" class="block text-xs font-semibold text-slate-300 mb-1.5">Job Site Location</label>
+                                    <select id="projectBorough" class="w-full px-4 py-3 rounded-xl bg-steel-950 border border-steel-800 text-sm text-white focus:outline-none focus:border-spark-500 transition">
+                                        <option value="Queens">Queens, NY</option>
+                                        <option value="Brooklyn">Brooklyn, NY</option>
+                                        <option value="Manhattan">Manhattan, NY</option>
+                                        <option value="Bronx">Bronx, NY</option>
+                                        <option value="Staten Island">Staten Island, NY</option>
+                                        <option value="Long Island">Long Island (Nassau / Suffolk)</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div>
+                                <label for="serviceType" class="block text-xs font-semibold text-slate-300 mb-1.5">Service Needed</label>
+                                <select id="serviceType" class="w-full px-4 py-3 rounded-xl bg-steel-950 border border-steel-800 text-sm text-white focus:outline-none focus:border-spark-500 transition">
+                                    <option value="Structural Steel">Structural Steel Erection & Beams</option>
+                                    <option value="Mobile Field Welding">Mobile On-Site Welding</option>
+                                    <option value="Stairs & Railings">Custom Stairs, Railings & Fire Escapes</option>
+                                    <option value="Gates & Security">Commercial Gates, Doors & Bollards</option>
+                                    <option value="Equipment Repair">Heavy Equipment / Industrial Repair</option>
+                                    <option value="Other">Other Custom Metal Fabrication</option>
+                                </select>
+                            </div>
+
+                            <div>
+                                <label for="projectDetails" class="block text-xs font-semibold text-slate-300 mb-1.5">Project Scope & Timeline *</label>
+                                <textarea id="projectDetails" rows="4" required placeholder="Describe steel dimensions, site access, target start date, or DOB inspection requirements..." class="w-full px-4 py-3 rounded-xl bg-steel-950 border border-steel-800 text-sm text-white placeholder-slate-500 focus:outline-none focus:border-spark-500 transition"></textarea>
+                            </div>
+
+                            <button type="submit" class="w-full py-4 px-6 rounded-xl bg-spark-500 hover:bg-spark-400 text-steel-950 font-bold text-sm sm:text-base transition shadow-lg shadow-spark-500/20 flex items-center justify-center gap-2">
+                                <i class="fa-solid fa-paper-plane"></i>
+                                <span>Submit Estimate Request</span>
+                            </button>
+                        </form>
+
+                        <!-- Confirmation Message Box (Replaces alert()) -->
+                        <div id="formSuccessBox" class="hidden mt-6 p-5 rounded-xl bg-emerald-500/10 border border-emerald-500/30 text-emerald-300 text-sm">
+                            <div class="flex items-start gap-3">
+                                <i class="fa-solid fa-circle-check text-emerald-400 text-lg mt-0.5"></i>
+                                <div>
+                                    <h4 class="font-bold text-white">Estimate Request Received!</h4>
+                                    <p class="mt-1 text-slate-300" id="formSuccessText"></p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-steel-950 border-t border-steel-900 py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-6 pb-8 border-b border-steel-900">
+                <div class="flex items-center gap-3">
+                    <div class="w-10 h-10 rounded-xl bg-spark-500 flex items-center justify-center text-steel-950 font-display font-bold text-lg">
+                        <i class="fa-solid fa-fire-flame-curved"></i>
+                    </div>
+                    <div>
+                        <span class="font-display font-bold text-lg text-white block leading-none">BATCO CONSTRUCTION INC.</span>
+                        <span class="text-xs text-slate-400 block mt-1">116-01 Merrick Blvd, Jamaica, NY 11434 • <a href="tel:9293920338" class="text-spark-400 hover:underline">(929) 392-0338</a> • DOS ID #4847462</span>
+                    </div>
+                </div>
+                <div class="flex flex-wrap items-center gap-6 text-sm text-slate-400">
+                    <a href="#services" class="hover:text-white transition">Capabilities</a>
+                    <a href="#projects" class="hover:text-white transition">Projects</a>
+                    <a href="#reviews" class="hover:text-white transition">Google Rating</a>
+                    <a href="#contact" class="hover:text-white transition">Contact</a>
+                    <!-- Footer Social Placeholders -->
+                    <div class="flex items-center gap-3 pl-2 border-l border-steel-800">
+                        <a href="#contact" data-social="instagram" aria-label="Instagram" class="hover:text-spark-400 transition"><i class="fa-brands fa-instagram"></i></a>
+                        <a href="#contact" data-social="facebook" aria-label="Facebook" class="hover:text-spark-400 transition"><i class="fa-brands fa-facebook"></i></a>
+                        <a href="#contact" data-social="linkedin" aria-label="LinkedIn" class="hover:text-spark-400 transition"><i class="fa-brands fa-linkedin"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="pt-6 flex flex-col sm:flex-row justify-between items-center gap-4 text-xs text-slate-500">
+                <p>© <span id="currentYear"></span> Batco Construction Inc. All rights reserved. Registered in New York State.</p>
+                <p>Structural Welding • Steel Fabrication • Queens, NY</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Fullscreen Lightbox Modal for Photos & Videos -->
+    <div id="mediaModal" class="hidden fixed inset-0 z-50 bg-steel-950/95 backdrop-blur-md flex items-center justify-center p-4">
+        <div class="relative w-full max-w-4xl bg-steel-900 border border-steel-800 rounded-2xl overflow-hidden shadow-2xl">
+            <div class="flex items-center justify-between px-5 py-4 border-b border-steel-800">
+                <div>
+                    <h3 id="modalTitle" class="font-display font-bold text-white text-base sm:text-lg"></h3>
+                    <p id="modalDesc" class="text-xs text-slate-400 mt-0.5"></p>
+                </div>
+                <button onclick="closeMediaModal()" class="w-9 h-9 rounded-xl bg-steel-800 hover:bg-steel-700 text-slate-300 hover:text-white flex items-center justify-center transition">
+                    <i class="fa-solid fa-xmark text-lg"></i>
+                </button>
+            </div>
+            <div id="modalContent" class="bg-black flex items-center justify-center max-h-[75vh] overflow-hidden">
+                <!-- Video or Image injected dynamically -->
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // =========================================================================
+        // SITE CONFIGURATION & FUTURE INTEGRATIONS (UPDATE THESE VALUES LATER)
+        // =========================================================================
+        const SITE_CONFIG = {
+            phoneDisplay: '(929) 392-0338',
+            phoneHref: 'tel:9293920338',
+            // 1. TODO: Update your official business email address below
+            emailAddress: 'info@batcoconstruction.com',
+            // 2. TODO: Paste your real social media profile URLs below when ready
+            socialLinks: {
+                instagram: '', // e.g., 'https://instagram.com/batcoconstruction'
+                facebook: '',  // e.g., 'https://facebook.com/batcoconstruction'
+                linkedin: '',  // e.g., 'https://linkedin.com/company/batco-construction'
+                youtube: ''    // e.g., 'https://youtube.com/@batcoconstruction'
+            },
+            // 3. TODO: Cloud Storage Flag (Set to true once cloud database/storage is connected)
+            cloudStorageEnabled: false
+        };
+
+        // Apply Email & Social Links from SITE_CONFIG automatically
+        function applySiteConfig() {
+            const emailLink = document.getElementById('companyEmailLink');
+            const emailText = document.getElementById('companyEmailText');
+            if (emailLink && emailText && SITE_CONFIG.emailAddress) {
+                emailLink.href = `mailto:${SITE_CONFIG.emailAddress}`;
+                emailText.textContent = SITE_CONFIG.emailAddress;
+            }
+
+            document.querySelectorAll('[data-social]').forEach(el => {
+                const platform = el.getAttribute('data-social');
+                const url = SITE_CONFIG.socialLinks[platform];
+                if (url) {
+                    el.href = url;
+                    el.target = '_blank';
+                    el.rel = 'noopener noreferrer';
+                }
+            });
+        }
+        applySiteConfig();
+
+        // =========================================================================
+        // FUTURE CLOUD STORAGE HOOKS (CONNECT PERSISTENT MEDIA & LEADS LATER)
+        // =========================================================================
+        async function syncProjectMediaFromCloud() {
+            if (!SITE_CONFIG.cloudStorageEnabled) return;
+            // TODO: Fetch saved project photos/videos from cloud database & storage bucket
+        }
+
+        async function uploadMediaToCloud(file, metadata) {
+            if (!SITE_CONFIG.cloudStorageEnabled) return null;
+            // TODO: Upload image/video file to cloud storage and save metadata record
+            return null;
+        }
+
+        async function saveQuoteRequestToCloud(quotePayload) {
+            if (!SITE_CONFIG.cloudStorageEnabled) return null;
+            // TODO: Persist contact/quote submission to cloud database
+            return null;
+        }
+
+        // Set Footer Year
+        document.getElementById('currentYear').textContent = new Date().getFullYear();
+
+        // Mobile Navigation Toggle
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        const mobileMenu = document.getElementById('mobileMenu');
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // Initial Project Showcase Data (Images & Videos)
+        const projectMedia = [
+            {
+                id: 1,
+                type: 'video',
+                title: 'Structural Steel MIG & Stick Welding',
+                location: 'Jamaica, Queens, NY',
+                category: 'Structural Steel',
+                thumbnail: 'https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?auto=format&fit=crop&w=800&q=80',
+                mediaUrl: 'https://assets.mixkit.co/videos/preview/mixkit-welder-working-with-sparks-flying-43546-large.mp4',
+                description: 'High-amperage structural connection welding on wide-flange steel beams.'
+            },
+            {
+                id: 2,
+                type: 'photo',
+                title: 'Commercial Warehouse Roof Truss & Framing',
+                location: 'Queens Village, NY',
+                category: 'Steel Erection',
+                thumbnail: 'https://images.unsplash.com/photo-1513828583688-c52646db42da?auto=format&fit=crop&w=800&q=80',
+                mediaUrl: 'https://images.unsplash.com/photo-1513828583688-c52646db42da?auto=format&fit=crop&w=1200&q=85',
+                description: 'Full-span steel girder installation and bolted/welded gusset plate assemblies.'
+            },
+            {
+                id: 3,
+                type: 'video',
+                title: 'Precision Metal Cutting & Fabrication',
+                location: 'Long Island City, Queens',
+                category: 'Shop Fabrication',
+                thumbnail: 'https://images.unsplash.com/photo-1535191042502-e6a9a3d407e7?auto=format&fit=crop&w=800&q=80',
+                mediaUrl: 'https://assets.mixkit.co/videos/preview/mixkit-sparks-flying-from-metal-cutting-43543-large.mp4',
+                description: 'Custom steel plate sizing, grinding, and weld prep for NYC commercial retrofit.'
+            },
+            {
+                id: 4,
+                type: 'photo',
+                title: 'Architectural Steel Staircase & Handrails',
+                location: 'Astoria, Queens, NY',
+                category: 'Architectural Ironwork',
+                thumbnail: 'https://images.unsplash.com/photo-1581092160562-40aa08e78837?auto=format&fit=crop&w=800&q=80',
+                mediaUrl: 'https://images.unsplash.com/photo-1581092160562-40aa08e78837?auto=format&fit=crop&w=1200&q=85',
+                description: 'Code-compliant steel stringer staircase and continuous welded tubular railings.'
+            },
+            {
+                id: 5,
+                type: 'photo',
+                title: 'Heavy Structural Column Base Plates',
+                location: 'Brooklyn / Queens Border',
+                category: 'Structural Reinforcement',
+                thumbnail: 'https://images.unsplash.com/photo-1565193566173-7a0ee3dbe261?auto=format&fit=crop&w=800&q=80',
+                mediaUrl: 'https://images.unsplash.com/photo-1565193566173-7a0ee3dbe261?auto=format&fit=crop&w=1200&q=85',
+                description: 'A36 steel anchor plates and stiffener welds engineered for multi-story load bearing.'
+            },
+            {
+                id: 6,
+                type: 'video',
+                title: 'On-Site Field Welding & Torch Work',
+                location: 'Merrick Blvd, Jamaica, NY',
+                category: 'Mobile Welding',
+                thumbnail: 'https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?auto=format&fit=crop&w=800&q=80',
+                mediaUrl: 'https://assets.mixkit.co/videos/preview/mixkit-man-welding-metal-with-a-torch-43548-large.mp4',
+                description: 'Mobile welding rig deployment for structural steel retrofitting and bracket installation.'
+            }
+        ];
+
+        let currentFilter = 'all';
+
+        // Render Gallery Cards
+        function renderGallery() {
+            const grid = document.getElementById('galleryGrid');
+            const filtered = currentFilter === 'all' 
+                ? projectMedia 
+                : projectMedia.filter(item => item.type === currentFilter);
+
+            grid.innerHTML = filtered.map(item => `
+                <div onclick="openMediaModal('${item.type}', '${item.mediaUrl}', '${item.title.replace(/'/g, "\\'")}', '${item.description.replace(/'/g, "\\'")}')" 
+                     class="group cursor-pointer rounded-2xl bg-steel-900 border border-steel-800 hover:border-spark-500/50 overflow-hidden transition shadow-lg flex flex-col">
+                    <div class="relative aspect-[16/10] bg-steel-800 overflow-hidden">
+                        ${item.isLocalVideo 
+                            ? `<video src="${item.mediaUrl}" class="w-full h-full object-cover" muted></video>`
+                            : `<img src="${item.thumbnail}" alt="${item.title}" onerror="this.src='https://placehold.co/800x500/1c222d/f59e0b?text=Batco+Project'" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">`
+                        }
+                        <div class="absolute inset-0 bg-gradient-to-t from-steel-950/90 via-transparent to-transparent"></div>
+                        
+                        <!-- Media Type Badge -->
+                        <div class="absolute top-3 left-3">
+                            <span class="px-2.5 py-1 rounded-lg text-[11px] font-bold uppercase tracking-wider flex items-center gap-1.5 ${item.type === 'video' ? 'bg-spark-500 text-steel-950' : 'bg-steel-950/80 text-white border border-steel-700'}">
+                                <i class="fa-solid ${item.type === 'video' ? 'fa-video' : 'fa-image'}"></i>
+                                ${item.type}
+                            </span>
+                        </div>
+
+                        ${item.type === 'video' ? `
+                            <div class="absolute inset-0 flex items-center justify-center">
+                                <div class="w-12 h-12 rounded-full bg-spark-500/90 text-steel-950 flex items-center justify-center shadow-xl group-hover:scale-110 transition-transform">
+                                    <i class="fa-solid fa-play ml-0.5"></i>
+                                </div>
+                            </div>
+                        ` : ''}
+
+                        <div class="absolute bottom-3 left-3 right-3 flex items-center justify-between text-xs text-slate-300">
+                            <span><i class="fa-solid fa-location-dot text-spark-400 mr-1"></i>${item.location}</span>
+                            <span class="text-spark-400 font-semibold group-hover:underline">Inspect →</span>
+                        </div>
+                    </div>
+
+                    <div class="p-5 flex-1 flex flex-col justify-between">
+                        <div>
+                            <span class="text-[11px] font-semibold uppercase tracking-wider text-spark-400">${item.category}</span>
+                            <h3 class="font-display font-bold text-lg text-white mt-1 group-hover:text-spark-400 transition">${item.title}</h3>
+                            <p class="text-slate-400 text-xs mt-2 leading-relaxed">${item.description}</p>
+                        </div>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        // Filter Button Logic
+        document.querySelectorAll('.filter-btn').forEach(btn => {
+            btn.addEventListener('click', () => {
+                document.querySelectorAll('.filter-btn').forEach(b => {
+                    b.classList.remove('active', 'bg-spark-500', 'text-steel-950', 'font-bold');
+                    b.classList.add('bg-steel-900', 'text-slate-300', 'font-semibold', 'border', 'border-steel-800');
+                });
+                btn.classList.add('active', 'bg-spark-500', 'text-steel-950', 'font-bold');
+                btn.classList.remove('bg-steel-900', 'text-slate-300', 'font-semibold', 'border', 'border-steel-800');
+                
+                currentFilter = btn.getAttribute('data-filter');
+                renderGallery();
+            });
+        });
+
+        // Toggle Upload Drawer
+        function toggleUploadDrawer() {
+            document.getElementById('uploadDrawer').classList.toggle('hidden');
+        }
+
+        // Handle Adding New Local Photo/Video to Gallery
+        document.getElementById('addMediaForm').addEventListener('submit', (e) => {
+            e.preventDefault();
+            const title = document.getElementById('mediaTitle').value.trim();
+            const type = document.getElementById('mediaType').value;
+            const fileInput = document.getElementById('mediaFile');
+
+            let mediaUrl = type === 'video'
+                ? 'https://assets.mixkit.co/videos/preview/mixkit-welder-working-with-sparks-flying-43546-large.mp4'
+                : 'https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?auto=format&fit=crop&w=1000&q=80';
+            let isLocalVideo = false;
+
+            if (fileInput.files && fileInput.files[0]) {
+                mediaUrl = URL.createObjectURL(fileInput.files[0]);
+                if (type === 'video') isLocalVideo = true;
+            }
+
+            projectMedia.unshift({
+                id: Date.now(),
+                type,
+                title,
+                location: 'Queens, NY',
+                category: 'Recent Showcase',
+                thumbnail: mediaUrl,
+                mediaUrl,
+                isLocalVideo,
+                description: 'Uploaded project showcase media by Batco Construction Inc.'
+            });
+
+            e.target.reset();
+            toggleUploadDrawer();
+            renderGallery();
+        });
+
+        // Fullscreen Media Lightbox Modal
+        function openMediaModal(type, url, title, desc) {
+            const modal = document.getElementById('mediaModal');
+            const modalContent = document.getElementById('modalContent');
+            document.getElementById('modalTitle').textContent = title;
+            document.getElementById('modalDesc').textContent = desc;
+
+            if (type === 'video') {
+                modalContent.innerHTML = `
+                    <video src="${url}" controls autoplay playsinline class="w-full max-h-[75vh] object-contain">
+                        Your browser does not support the video tag.
+                    </video>
+                `;
+            } else {
+                modalContent.innerHTML = `
+                    <img src="${url}" alt="${title}" onerror="this.src='https://placehold.co/1000x700/1c222d/f59e0b?text=Batco+Construction+Project'" class="w-full max-h-[75vh] object-contain">
+                `;
+            }
+
+            modal.classList.remove('hidden');
+        }
+
+        function closeMediaModal() {
+            const modal = document.getElementById('mediaModal');
+            document.getElementById('modalContent').innerHTML = '';
+            modal.classList.add('hidden');
+        }
+
+        // Close modal on outside click or Escape key
+        document.getElementById('mediaModal').addEventListener('click', (e) => {
+            if (e.target.id === 'mediaModal') closeMediaModal();
+        });
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') closeMediaModal();
+        });
+
+        // Contact Form Submission
+        document.getElementById('contactForm').addEventListener('submit', (e) => {
+            e.preventDefault();
+            const name = document.getElementById('clientName').value.trim();
+            const borough = document.getElementById('projectBorough').value;
+            const service = document.getElementById('serviceType').value;
+
+            const successBox = document.getElementById('formSuccessBox');
+            const successText = document.getElementById('formSuccessText');
+            successText.textContent = `Thank you, ${name}. Your inquiry for ${service} in ${borough} has been logged for our Jamaica, Queens estimating team.`;
+            successBox.classList.remove('hidden');
+            e.target.reset();
+        });
+
+        // Initial Render
+        renderGallery();
+    </script>
+</body>
+</html>
