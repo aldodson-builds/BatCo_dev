@@ -93,6 +93,19 @@
             background-color: var(--color-spark-400);
             box-shadow: 0 8px 24px -4px rgba(245, 158, 11, 0.35);
         }
+
+        /* Responsive Iframe Wrapper for Google Drive Video Previews */
+        .drive-video-wrapper {
+            position: relative;
+            width: 100%;
+            aspect-ratio: 16 / 9;
+            background: #000;
+        }
+        .drive-video-wrapper iframe {
+            width: 100%;
+            height: 100%;
+            border: 0;
+        }
     </style>
 </head>
 <body class="bg-steel-950 text-slate-100 font-sans antialiased selection:bg-spark-500 selection:text-steel-950">
@@ -374,14 +387,25 @@
                 </div>
             </div>
 
-            <!-- Owner Media Upload Drawer (Interactive Preview Tool) -->
+            <!-- Owner Media Upload Drawer (Supports Google Drive Share Links & Local Device Files) -->
             <div id="uploadDrawer" class="hidden mt-6 p-6 rounded-2xl bg-steel-900 border border-spark-500/40 shadow-xl">
-                <div class="flex items-center justify-between mb-4">
+                <div class="flex flex-wrap items-center justify-between gap-3 mb-4">
                     <h3 class="font-display font-bold text-lg text-white flex items-center gap-2">
                         <i class="fa-solid fa-cloud-arrow-up text-spark-400"></i>
                         Add Photo or Video to Showcase
                     </h3>
-                    <button onclick="toggleUploadDrawer()" class="text-slate-400 hover:text-white"><i class="fa-solid fa-xmark text-lg"></i></button>
+                    <div class="flex items-center gap-3">
+                        <!-- Source Mode Switcher -->
+                        <div class="inline-flex rounded-xl bg-steel-950 p-1 border border-steel-800 text-xs font-semibold">
+                            <button type="button" id="tabDriveLink" class="px-3 py-1.5 rounded-lg bg-spark-500 text-steel-950 font-bold transition">
+                                <i class="fa-brands fa-google-drive mr-1"></i> Google Drive Link
+                            </button>
+                            <button type="button" id="tabLocalFile" class="px-3 py-1.5 rounded-lg text-slate-300 hover:text-white transition">
+                                <i class="fa-solid fa-upload mr-1"></i> Device File
+                            </button>
+                        </div>
+                        <button onclick="toggleUploadDrawer()" class="text-slate-400 hover:text-white p-1"><i class="fa-solid fa-xmark text-lg"></i></button>
+                    </div>
                 </div>
                 <form id="addMediaForm" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
                     <div>
@@ -391,11 +415,15 @@
                     <div>
                         <label class="block text-xs font-semibold text-slate-300 mb-1">Media Type</label>
                         <select id="mediaType" class="w-full px-3.5 py-2.5 rounded-xl bg-steel-950 border border-steel-800 text-sm text-white focus:outline-none focus:border-spark-500">
-                            <option value="photo">Photo (Image File or URL)</option>
-                            <option value="video">Video (MP4 File or URL)</option>
+                            <option value="photo">Photo (Image)</option>
+                            <option value="video">Video (Reel / Walkthrough)</option>
                         </select>
                     </div>
-                    <div>
+                    <div id="driveUrlField">
+                        <label class="block text-xs font-semibold text-slate-300 mb-1">Google Drive Share Link</label>
+                        <input type="url" id="mediaDriveUrl" placeholder="https://drive.google.com/file/d/..." class="w-full px-3.5 py-2.5 rounded-xl bg-steel-950 border border-steel-800 text-sm text-white focus:outline-none focus:border-spark-500">
+                    </div>
+                    <div id="localFileField" class="hidden">
                         <label class="block text-xs font-semibold text-slate-300 mb-1">Select Local File</label>
                         <input type="file" id="mediaFile" accept="image/*,video/*" class="w-full text-xs text-slate-300 file:mr-3 file:py-2 file:px-3 file:rounded-lg file:border-0 file:text-xs file:font-semibold file:bg-spark-500 file:text-steel-950 hover:file:bg-spark-400">
                     </div>
@@ -405,6 +433,10 @@
                         </button>
                     </div>
                 </form>
+                <p id="driveHelperNote" class="text-[11px] text-slate-400 mt-3">
+                    <i class="fa-solid fa-circle-info text-spark-400 mr-1"></i>
+                    Ensure your Google Drive folder or file is shared as <strong class="text-slate-200">"Anyone with the link"</strong> so visitors can view photos and stream videos directly.
+                </p>
             </div>
 
             <!-- Gallery Grid -->
@@ -861,9 +893,72 @@
                 linkedin: '',  // e.g., 'https://linkedin.com/company/batco-construction'
                 youtube: ''    // e.g., 'https://youtube.com/@batcoconstruction'
             },
-            // 3. TODO: Cloud Storage Flag (Set to true once cloud database/storage is connected)
+            // 3. PASTE YOUR GOOGLE DRIVE LINKS HERE:
+            // Standard Google Drive "Copy link" URLs (e.g., https://drive.google.com/file/d/FILE_ID/view?usp=sharing)
+            // are automatically converted into high-res images and playable video embeds!
+            GOOGLE_DRIVE_GALLERY: [
+                /* Example entries (uncomment and paste your real Google Drive links):
+                {
+                    type: 'photo', // 'photo' or 'video'
+                    title: 'Structural Steel Beam Installation',
+                    location: 'Jamaica, Queens, NY',
+                    category: 'Structural Steel',
+                    mediaUrl: 'https://drive.google.com/file/d/YOUR_PHOTO_FILE_ID/view?usp=sharing',
+                    description: 'Wide-flange structural steel erection and field welding.'
+                },
+                {
+                    type: 'video',
+                    title: 'On-Site Welding & Fabrication Reel',
+                    location: 'Queens Village, NY',
+                    category: 'Mobile Welding',
+                    mediaUrl: 'https://drive.google.com/file/d/YOUR_VIDEO_FILE_ID/view?usp=sharing',
+                    description: 'Live field welding and custom ironwork installation.'
+                }
+                */
+            ],
+            // 4. TODO: Cloud Storage Flag (Set to true if wiring an external backend later)
             cloudStorageEnabled: false
         };
+
+        // =========================================================================
+        // GOOGLE DRIVE URL PARSER (Converts share links into direct embeds)
+        // =========================================================================
+        function extractGoogleDriveFileId(url) {
+            if (!url) return null;
+            const patterns = [
+                /\/file\/d\/([a-zA-Z0-9_-]+)/,
+                /[?&]id=([a-zA-Z0-9_-]+)/,
+                /\/d\/([a-zA-Z0-9_-]+)/
+            ];
+            for (const pattern of patterns) {
+                const match = url.match(pattern);
+                if (match && match[1]) return match[1];
+            }
+            return null;
+        }
+
+        function resolveMediaSources(item) {
+            const driveId = extractGoogleDriveFileId(item.mediaUrl);
+            if (driveId) {
+                if (item.type === 'video') {
+                    return {
+                        isGoogleDrive: true,
+                        thumbnail: `https://drive.google.com/thumbnail?id=${driveId}&sz=w800`,
+                        embedUrl: `https://drive.google.com/file/d/${driveId}/preview`
+                    };
+                }
+                return {
+                    isGoogleDrive: true,
+                    thumbnail: `https://drive.google.com/thumbnail?id=${driveId}&sz=w800`,
+                    embedUrl: `https://drive.google.com/thumbnail?id=${driveId}&sz=w1600`
+                };
+            }
+            return {
+                isGoogleDrive: false,
+                thumbnail: item.thumbnail || item.mediaUrl,
+                embedUrl: item.mediaUrl
+            };
+        }
 
         // Apply Email & Social Links from SITE_CONFIG automatically
         function applySiteConfig() {
@@ -916,8 +1011,8 @@
             mobileMenu.classList.toggle('hidden');
         });
 
-        // Initial Project Showcase Data (Images & Videos)
-        const projectMedia = [
+        // Default Starter Project Showcase Data (Combined with SITE_CONFIG.GOOGLE_DRIVE_GALLERY)
+        const defaultProjectMedia = [
             {
                 id: 1,
                 type: 'video',
@@ -980,7 +1075,19 @@
             }
         ];
 
+        const projectMedia = [
+            ...SITE_CONFIG.GOOGLE_DRIVE_GALLERY.map((item, i) => ({
+                id: `drive-${i}`,
+                location: 'Queens, NY',
+                category: 'Batco Portfolio',
+                description: 'Project photo/video hosted via Batco Construction Google Drive.',
+                ...item
+            })),
+            ...defaultProjectMedia
+        ];
+
         let currentFilter = 'all';
+        let uploadSourceMode = 'drive';
 
         // Render Gallery Cards
         function renderGallery() {
@@ -989,18 +1096,24 @@
                 ? projectMedia 
                 : projectMedia.filter(item => item.type === currentFilter);
 
-            grid.innerHTML = filtered.map(item => `
-                <div onclick="openMediaModal('${item.type}', '${item.mediaUrl}', '${item.title.replace(/'/g, "\\'")}', '${item.description.replace(/'/g, "\\'")}')" 
-                     class="group cursor-pointer rounded-2xl bg-steel-900 border border-steel-800 hover:border-spark-500/50 overflow-hidden transition shadow-lg flex flex-col">
+            grid.innerHTML = filtered.map(item => {
+                const resolved = resolveMediaSources(item);
+                const safeUrl = resolved.embedUrl.replace(/'/g, "\\'");
+                const safeTitle = item.title.replace(/'/g, "\\'");
+                const safeDesc = (item.description || '').replace(/'/g, "\\'");
+
+                return `
+                <div onclick="openMediaModal('${item.type}', '${safeUrl}', '${safeTitle}', '${safeDesc}', ${resolved.isGoogleDrive})" 
+                     class="steel-card group cursor-pointer rounded-2xl overflow-hidden shadow-lg flex flex-col">
                     <div class="relative aspect-[16/10] bg-steel-800 overflow-hidden">
                         ${item.isLocalVideo 
-                            ? `<video src="${item.mediaUrl}" class="w-full h-full object-cover" muted></video>`
-                            : `<img src="${item.thumbnail}" alt="${item.title}" onerror="this.src='https://placehold.co/800x500/1c222d/f59e0b?text=Batco+Project'" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">`
+                            ? `<video src="${resolved.embedUrl}" class="w-full h-full object-cover" muted></video>`
+                            : `<img src="${resolved.thumbnail}" alt="${item.title}" onerror="this.src='https://placehold.co/800x500/1c222d/f59e0b?text=Batco+Project'" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">`
                         }
                         <div class="absolute inset-0 bg-gradient-to-t from-steel-950/90 via-transparent to-transparent"></div>
                         
                         <!-- Media Type Badge -->
-                        <div class="absolute top-3 left-3">
+                        <div class="absolute top-3 left-3 flex items-center gap-1.5">
                             <span class="px-2.5 py-1 rounded-lg text-[11px] font-bold uppercase tracking-wider flex items-center gap-1.5 ${item.type === 'video' ? 'bg-spark-500 text-steel-950' : 'bg-steel-950/80 text-white border border-steel-700'}">
                                 <i class="fa-solid ${item.type === 'video' ? 'fa-video' : 'fa-image'}"></i>
                                 ${item.type}
@@ -1029,7 +1142,8 @@
                         </div>
                     </div>
                 </div>
-            `).join('');
+            `;
+            }).join('');
         }
 
         // Filter Button Logic
@@ -1052,21 +1166,56 @@
             document.getElementById('uploadDrawer').classList.toggle('hidden');
         }
 
-        // Handle Adding New Local Photo/Video to Gallery
+        // Switch between Google Drive Share Link and Local File Upload
+        const tabDriveLink = document.getElementById('tabDriveLink');
+        const tabLocalFile = document.getElementById('tabLocalFile');
+        const driveUrlField = document.getElementById('driveUrlField');
+        const localFileField = document.getElementById('localFileField');
+        const driveHelperNote = document.getElementById('driveHelperNote');
+
+        tabDriveLink.addEventListener('click', () => {
+            uploadSourceMode = 'drive';
+            tabDriveLink.classList.add('bg-spark-500', 'text-steel-950', 'font-bold');
+            tabDriveLink.classList.remove('text-slate-300');
+            tabLocalFile.classList.remove('bg-spark-500', 'text-steel-950', 'font-bold');
+            tabLocalFile.classList.add('text-slate-300');
+            driveUrlField.classList.remove('hidden');
+            localFileField.classList.add('hidden');
+            driveHelperNote.classList.remove('hidden');
+        });
+
+        tabLocalFile.addEventListener('click', () => {
+            uploadSourceMode = 'local';
+            tabLocalFile.classList.add('bg-spark-500', 'text-steel-950', 'font-bold');
+            tabLocalFile.classList.remove('text-slate-300');
+            tabDriveLink.classList.remove('bg-spark-500', 'text-steel-950', 'font-bold');
+            tabDriveLink.classList.add('text-slate-300');
+            localFileField.classList.remove('hidden');
+            driveUrlField.classList.add('hidden');
+            driveHelperNote.classList.add('hidden');
+        });
+
+        // Handle Adding New Google Drive or Local Photo/Video to Gallery
         document.getElementById('addMediaForm').addEventListener('submit', (e) => {
             e.preventDefault();
             const title = document.getElementById('mediaTitle').value.trim();
             const type = document.getElementById('mediaType').value;
-            const fileInput = document.getElementById('mediaFile');
 
             let mediaUrl = type === 'video'
                 ? 'https://assets.mixkit.co/videos/preview/mixkit-welder-working-with-sparks-flying-43546-large.mp4'
                 : 'https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?auto=format&fit=crop&w=1000&q=80';
             let isLocalVideo = false;
 
-            if (fileInput.files && fileInput.files[0]) {
-                mediaUrl = URL.createObjectURL(fileInput.files[0]);
-                if (type === 'video') isLocalVideo = true;
+            if (uploadSourceMode === 'drive') {
+                const driveInput = document.getElementById('mediaDriveUrl').value.trim();
+                if (!driveInput) return;
+                mediaUrl = driveInput;
+            } else {
+                const fileInput = document.getElementById('mediaFile');
+                if (fileInput.files && fileInput.files[0]) {
+                    mediaUrl = URL.createObjectURL(fileInput.files[0]);
+                    if (type === 'video') isLocalVideo = true;
+                }
             }
 
             projectMedia.unshift({
@@ -1086,19 +1235,27 @@
             renderGallery();
         });
 
-        // Fullscreen Media Lightbox Modal
-        function openMediaModal(type, url, title, desc) {
+        // Fullscreen Media Lightbox Modal (Supports Google Drive Iframes, HTML5 Video & Photos)
+        function openMediaModal(type, url, title, desc, isGoogleDrive = false) {
             const modal = document.getElementById('mediaModal');
             const modalContent = document.getElementById('modalContent');
             document.getElementById('modalTitle').textContent = title;
             document.getElementById('modalDesc').textContent = desc;
 
             if (type === 'video') {
-                modalContent.innerHTML = `
-                    <video src="${url}" controls autoplay playsinline class="w-full max-h-[75vh] object-contain">
-                        Your browser does not support the video tag.
-                    </video>
-                `;
+                if (isGoogleDrive) {
+                    modalContent.innerHTML = `
+                        <div class="drive-video-wrapper">
+                            <iframe src="${url}" allow="autoplay; fullscreen" allowfullscreen></iframe>
+                        </div>
+                    `;
+                } else {
+                    modalContent.innerHTML = `
+                        <video src="${url}" controls autoplay playsinline class="w-full max-h-[75vh] object-contain">
+                            Your browser does not support the video tag.
+                        </video>
+                    `;
+                }
             } else {
                 modalContent.innerHTML = `
                     <img src="${url}" alt="${title}" onerror="this.src='https://placehold.co/1000x700/1c222d/f59e0b?text=Batco+Construction+Project'" class="w-full max-h-[75vh] object-contain">
